@@ -29,9 +29,15 @@ jobs:
       - name: Ejecutar pruebas unitarias
         run: mvn test
 
-      - name: Guardar resultados de pruebas
+      - name: Generar reporte HTML
+        if: always()
+        run: mvn site
+
+      - name: Guardar reporte de pruebas
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: resultados-pruebas-unitarias
-          path: target/surefire-reports/
+          name: reporte-pruebas-unitarias
+          path: |
+            target/site/
+            target/surefire-reports/

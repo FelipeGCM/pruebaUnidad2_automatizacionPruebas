@@ -36,5 +36,6 @@ build/
 .DS_Store
 
 ### JMeter ###
+jmeter.log
 performance/results/
 performance/report/

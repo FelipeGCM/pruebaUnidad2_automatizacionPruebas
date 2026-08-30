@@ -1,4 +1,4 @@
-# pruebaUnidad2_automatizacionPruebas
+# Actividad 1
 
 Proyecto desarrollado para la evaluación de la Unidad 2 del ramo Automatización de Pruebas.
 

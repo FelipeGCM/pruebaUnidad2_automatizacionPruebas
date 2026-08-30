@@ -26,14 +26,14 @@ jobs:
       - name: Compilar proyecto
         run: mvn clean compile
 
-      - name: Ejecutar pruebas unitarias
+      - name: Ejecutar pruebas unitarias y BDD
         run: mvn test
 
-      - name: Generar reporte HTML
+      - name: Generar reporte HTML de pruebas unitarias
         if: always()
         run: mvn site
 
-      - name: Guardar reporte de pruebas
+      - name: Guardar reporte de pruebas unitarias
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -41,3 +41,10 @@ jobs:
           path: |
             target/site/
             target/surefire-reports/
+
+      - name: Guardar reporte BDD
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-bdd-cucumber
+          path: target/cucumber-report.html
